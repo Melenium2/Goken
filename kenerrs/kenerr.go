@@ -41,3 +41,23 @@ func FuncInvocationParameterIsEmptyError(caller string) error {
 func AnonFuncSignatureIsNilError(caller string) error {
 	return fmt.Errorf(`[MEW-9] Anon function signature raise error: signature is nil, %s`, caller)
 }
+
+func StructNameIsEmptyError(caller string) error {
+	return fmt.Errorf(`[MEW-10] Struct raise error: struct name is empty, %s`, caller)
+}
+
+func StructFieldNameIsEmptyError(caller string) error {
+	return fmt.Errorf(`[MEW-11] Struct raise error: struct field name is empty, %s`, caller)
+}
+
+func StructFieldTypeIsEmptyError(caller string) error {
+	return fmt.Errorf(`[MEW-12] Struct raise error: struct field type is empty, %s`, caller)
+}
+
+func CaseConditionIsEmptyError(caller string) error {
+	return fmt.Errorf(`[MEW-13] Case raise error: case condition is empty, %s`, caller)
+}
+
+func ValueOfCompositeLiteralIsEmptyError(caller string) error {
+	return fmt.Errorf(`[MEW-14] Composite literal raise error: value of composite literal is empty, %s`, caller)
+}

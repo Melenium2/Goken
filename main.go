@@ -6,17 +6,20 @@ import (
 )
 
 func main() {
-	g := ken.NewAnonFunc(
-		true,
-		ken.NewAnonFuncSignature().AddParams(
-			ken.NewFuncParam("hi", "string")),
-	).
-		Invocation(ken.NewFuncInvocation("hello"))
+	s := ken.NewSwitch("os := runtime.GOOS; os").
+		AddCase(ken.NewCase("\"linux\"")).
+		Default(ken.NewDefaultState())
+
+	f := ken.NewFunction(
+		nil,
+		ken.NewFuncSignature("test").
+			AddParams(ken.NewFuncParam("t", "*testing.T")),
+		).AddStatements(s)
+
 
 	k := ken.NewRoot().AddState(
-		g,
+		f,
 	).Gofmt("-s").Goimports().EnableSyntaxChecking()
-
 
 	code, err := k.Generate(0)
 	if err != nil {
@@ -25,3 +28,5 @@ func main() {
 
 	println(code)
 }
+
+//https://github.com/moznion/gowrtr
