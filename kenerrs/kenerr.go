@@ -61,3 +61,11 @@ func CaseConditionIsEmptyError(caller string) error {
 func ValueOfCompositeLiteralIsEmptyError(caller string) error {
 	return fmt.Errorf(`[MEW-14] Composite literal raise error: value of composite literal is empty, %s`, caller)
 }
+
+func IfConditionIsEmptyError(caller string) error {
+	return fmt.Errorf(`[MEW-15] If raise error: If conditions is empty, %s`, caller)
+}
+
+func InterfaceNameEmptyError(caller string) error {
+	return fmt.Errorf(`[MEW-16] Interface raise error: Interface name is empty, %s`, caller)
+}

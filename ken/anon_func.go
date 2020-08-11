@@ -3,7 +3,7 @@ package ken
 import "github.com/goken/kenerrs"
 
 type AnonFunc struct {
-	async          bool
+	async          bool `json:"async"`
 	funcSignature  *AnonFuncSignature
 	statements     []State
 	funcInvocation *FuncInvocation

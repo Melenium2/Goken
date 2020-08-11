@@ -36,7 +36,7 @@ func NewFuncReturnType(typ string, name ...string) *FuncReturnType {
 
 func (frt *FuncReturnType) Generate(indent int) (string, error) {
 	name := frt.name
-	typ := frt.name
+	typ := frt.typ
 
 	stmt := name
 	if name != "" && typ != "" {
@@ -190,6 +190,7 @@ func (fs *FuncSignature) Generate(indent int) (string, error) {
 	case 0:
 	case 1:
 		typ, _ := fs.returnType[0].Generate(0)
+
 		opener := " "
 		closer := ""
 		if strings.Contains(typ, " ") {
@@ -214,6 +215,5 @@ func (fs *FuncSignature) Generate(indent int) (string, error) {
 		}
 		stmt += " (" + strings.Join(types, ", ") + ")"
 	}
-
 	return stmt, nil
 }
