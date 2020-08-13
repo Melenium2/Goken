@@ -47,7 +47,7 @@ func (r *Root) AddState(state State) *Root {
 	}
 }
 
-func (r *Root) States(states []State) *Root {
+func (r *Root) States(states ...State) *Root {
 	return &Root{
 		states:         states,
 		gofmt:          r.gofmt,
