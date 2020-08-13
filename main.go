@@ -83,6 +83,7 @@ func defaults() {
 	viper.SetDefault("ken_http_transport_path", path.Join("%s", "transport"))
 	viper.SetDefault("ken_grpc_transport_path", path.Join("%s", "transport"))
 
+	viper.SetDefault("ken_package", path.Join("logic"))
 	viper.SetDefault("ken_service_name", "service.go")
 	viper.SetDefault("ken_endpoints_name", "endpoints.go")
 	viper.SetDefault("ken_http_transport_name", "http_transport.go")

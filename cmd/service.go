@@ -3,6 +3,7 @@ package cmd
 import (
 	"github.com/goken/generators"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"log"
 )
 
@@ -25,5 +26,6 @@ var serviceCmd = &cobra.Command{
 
 func init() {
 	serviceCmd.Flags().StringVarP(&packageName, "package", "p", packageName, "Provide package name for service")
+	viper.BindPFlag("ken_package", serviceCmd.Flags().Lookup("package"))
 	newCmd.AddCommand(serviceCmd)
 }

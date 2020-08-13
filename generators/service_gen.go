@@ -2,6 +2,7 @@ package generators
 
 import (
 	"fmt"
+	"github.com/goken/astparser"
 	"github.com/goken/fs"
 	"github.com/goken/ken"
 	"github.com/goken/utils"
@@ -40,7 +41,7 @@ func rawService(name, packageName string) (string, error) {
 		nil,
 		ken.NewFuncSignature(fmt.Sprintf("New%s", serviceName)).
 			ReturnType(serviceName),
-		ken.NewReturnStatement(fmt.Sprintf("&%s{}", lowerServiceName)),
+		ken.NewReturnStatement(ken.NewRawStatement(fmt.Sprintf("&%s{}", lowerServiceName))),
 	)
 
 	return root(
@@ -55,4 +56,15 @@ func rawService(name, packageName string) (string, error) {
 		newFuncComment,
 		newServiceFunc,
 	)
+}
+
+func parseService(path string) (*astparser.ASTFile, error) {
+	content, err := fs.Get().ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+
+	parser := astparser.New()
+
+	return parser.Parse([]byte(content)), nil
 }
