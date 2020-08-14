@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package pb;
+
+service RightHand {
+  rpc Start(StartRequest) returns (StartResponse) {}
+  rpc Terminate(TerminateRequest) returns (TerminateResponse) {}
+  rpc GetTempApps(GetTempAppsRequest) returns (GetTempAppsResponse) {}
+}
+
+message App {
+  int64 Id = 1;
+  string Bundle = 2;
+  string DeveloperId = 3;
+  string Developer = 4;
+  string Title = 5;
+  string Categories = 6;
+  string Price = 7;
+  string Picture = 8;
+  repeated string Screenshots = 9;
+  string Rating = 10;
+  string ReviewCount = 11;
+  repeated string RatingHistogram = 12;
+  string Description = 13;
+  string ShortDescription = 14;
+  string RecentChanges = 15;
+  string ReleaseDate = 16;
+  string LastUpdateDate = 17;
+  string AppSize = 18;
+  string Installs = 19;
+  string Version = 20;
+  string AndroidVersion = 21;
+  string ContentRating = 22;
+  string DeveloperContacts = 23;
+  string Geo = 24;
+  int64 Date = 25;
+}
+
+message GetTempAppsRequest {
+  int32 Count = 1;
+}
+
+message GetTempAppsResponse {
+  repeated App apps = 1;
+  string Err = 2;
+}
+
+message TerminateRequest{}
+message TerminateResponse{
+  string Ok = 1;
+  string Err = 2;
+}
+
+message StartRequest {
+  string Lang = 1;
+  int32 Parallel = 2;
+}
+
+message StartResponse {
+  string Ok = 1;
+  string Err = 2;
+}

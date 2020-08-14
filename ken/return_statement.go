@@ -34,7 +34,7 @@ func (r *ReturnStatement) Generate(indent int) (string, error) {
 		if err != nil {
 			return "", err
 		}
-		stmt += " " + gen + ", "
+		stmt += " " + strings.Trim(gen, "\n") + ", "
 	}
 	stmt = strings.TrimRight(stmt, ", ")
 
