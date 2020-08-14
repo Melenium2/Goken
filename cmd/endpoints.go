@@ -25,5 +25,7 @@ var endpointsCmd = &cobra.Command{
 }
 
 func init() {
+	// Добавить новый флаг except
+	// В котороый юзер передает аргументы названий методов которые он не хочет видеть в ендпоинтах
 	newCmd.AddCommand(endpointsCmd)
 }

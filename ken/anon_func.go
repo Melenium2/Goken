@@ -88,7 +88,5 @@ func (f *AnonFunc) Generate(indent int) (string, error) {
 		stmt += i
 	}
 
-	stmt += "\n"
-
 	return stmt, nil
 }

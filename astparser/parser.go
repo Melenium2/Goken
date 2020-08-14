@@ -297,7 +297,6 @@ func parseFieldListAsMethods(list *ast.FieldList) []FuncType {
 			}
 		}
 	}
-
 	return funcs
 }
 
