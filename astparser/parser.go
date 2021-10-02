@@ -3,7 +3,7 @@ package astparser
 import (
 	"bytes"
 	"fmt"
-	"github.com/goken/utils"
+	"github.com/Melenium2/goken/utils"
 	"go/ast"
 	"go/format"
 	"go/parser"
@@ -177,7 +177,7 @@ func parseVars(specs []ast.Spec) []TypeTuple {
 		} else {
 			if !ok {
 				vars = append(vars, TypeTuple{
-					First:  vsp.Names[0].Name,
+					First: vsp.Names[0].Name,
 				})
 				continue
 			} else {

@@ -2,7 +2,7 @@ package ken
 
 import (
 	"fmt"
-	"github.com/goken/kenerrs"
+	"github.com/Melenium2/goken/kenerrs"
 )
 
 type If struct {
@@ -15,9 +15,9 @@ type If struct {
 
 func NewIf(condition string, states ...State) *If {
 	return &If{
-		condition: condition,
+		condition:  condition,
 		statements: states,
-		caller: fetchCallerLine(),
+		caller:     fetchCallerLine(),
 	}
 }
 

@@ -2,7 +2,7 @@ package ken
 
 import (
 	"fmt"
-	"github.com/goken/kenerrs"
+	"github.com/Melenium2/goken/kenerrs"
 )
 
 type FuncReceiver struct {

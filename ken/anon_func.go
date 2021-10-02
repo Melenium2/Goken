@@ -1,6 +1,6 @@
 package ken
 
-import "github.com/goken/kenerrs"
+import "github.com/Melenium2/goken/kenerrs"
 
 type AnonFunc struct {
 	async          bool `json:"async"`
@@ -12,40 +12,40 @@ type AnonFunc struct {
 
 func NewAnonFunc(async bool, signature *AnonFuncSignature, states ...State) *AnonFunc {
 	return &AnonFunc{
-		async: async,
+		async:         async,
 		funcSignature: signature,
-		statements: states,
-		caller: fetchCallerLine(),
+		statements:    states,
+		caller:        fetchCallerLine(),
 	}
 }
 
 func (f *AnonFunc) AddStatements(states ...State) *AnonFunc {
 	return &AnonFunc{
-		async: f.async,
-		funcSignature: f.funcSignature,
-		statements: append(f.statements, states...),
+		async:          f.async,
+		funcSignature:  f.funcSignature,
+		statements:     append(f.statements, states...),
 		funcInvocation: f.funcInvocation,
-		caller: fetchCallerLine(),
+		caller:         fetchCallerLine(),
 	}
 }
 
 func (f *AnonFunc) Statements(states ...State) *AnonFunc {
 	return &AnonFunc{
-		async: f.async,
-		funcSignature: f.funcSignature,
-		statements: states,
+		async:          f.async,
+		funcSignature:  f.funcSignature,
+		statements:     states,
 		funcInvocation: f.funcInvocation,
-		caller: fetchCallerLine(),
+		caller:         fetchCallerLine(),
 	}
 }
 
 func (f *AnonFunc) Invocation(invocation *FuncInvocation) *AnonFunc {
 	return &AnonFunc{
-		async: f.async,
-		funcSignature: f.funcSignature,
-		statements: f.statements,
+		async:          f.async,
+		funcSignature:  f.funcSignature,
+		statements:     f.statements,
 		funcInvocation: invocation,
-		caller: fetchCallerLine(),
+		caller:         fetchCallerLine(),
 	}
 }
 

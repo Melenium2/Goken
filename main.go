@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/goken/cmd"
+	"github.com/Melenium2/goken/cmd"
 	"github.com/spf13/viper"
 	"path"
 )
@@ -92,4 +92,3 @@ func defaults() {
 }
 
 //https://github.com/moznion/gowrtr
-

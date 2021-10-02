@@ -1,15 +1,15 @@
 package cmd
 
 import (
-	"github.com/goken/generators"
+	"github.com/Melenium2/goken/generators"
 	"github.com/spf13/cobra"
 	"log"
 )
 
 var endpointsCmd = &cobra.Command{
-	Use: "endpoints",
+	Use:     "endpoints",
 	Aliases: []string{"ep"},
-	Short: "Generate new service with provided name",
+	Short:   "Generate new service with provided name",
 	Run: func(cmd *cobra.Command, args []string) {
 		var path string
 		if len(args) == 0 {

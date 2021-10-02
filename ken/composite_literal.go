@@ -2,7 +2,7 @@ package ken
 
 import (
 	"fmt"
-	"github.com/goken/kenerrs"
+	"github.com/Melenium2/goken/kenerrs"
 	"strings"
 )
 
@@ -27,7 +27,7 @@ func (c *CompositeLiteral) AddField(key string, value State) *CompositeLiteral {
 	return &CompositeLiteral{
 		typ: c.typ,
 		fields: append(c.fields, &compositeLiteralField{
-			key: key,
+			key:   key,
 			value: value,
 		}),
 		callers: append(c.callers, fetchCallerLine()),
@@ -38,7 +38,7 @@ func (c *CompositeLiteral) AddFieldStr(key, value string) *CompositeLiteral {
 	return &CompositeLiteral{
 		typ: c.typ,
 		fields: append(c.fields, &compositeLiteralField{
-			key: key,
+			key:   key,
 			value: NewRawStatement(fmt.Sprintf(`"%s"`, value)),
 		}),
 	}
@@ -48,7 +48,7 @@ func (c *CompositeLiteral) AddFieldRaw(key string, value interface{}) *Composite
 	return &CompositeLiteral{
 		typ: c.typ,
 		fields: append(c.fields, &compositeLiteralField{
-			key: key,
+			key:   key,
 			value: NewRawStatement(fmt.Sprintf("%v", value)),
 		}),
 		callers: append(c.callers, fetchCallerLine()),

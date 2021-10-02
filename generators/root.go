@@ -1,6 +1,6 @@
 package generators
 
-import "github.com/goken/ken"
+import "github.com/Melenium2/goken/ken"
 
 type Generator interface {
 	raw() (string, error)
