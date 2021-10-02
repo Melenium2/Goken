@@ -2,10 +2,11 @@ package ken
 
 import (
 	"bytes"
-	"github.com/Melenium2/goken/kenerrs"
 	"io"
 	"os/exec"
 	"strings"
+
+	"github.com/Melenium2/goken/kenerrs"
 )
 
 type State interface {
@@ -139,27 +140,29 @@ func (r *Root) applyGoimports(generatedCode string) (string, error) {
 
 func applyCodeFormatter(generatedCode string, formatterCmdName string, options ...string) (string, error) {
 	var (
-		echoCmd      = exec.Command("echo", generatedCode)
 		formattedCmd = exec.Command(formatterCmdName, options...)
+		stdinPipe, _ = formattedCmd.StdinPipe()
 		out, errout  bytes.Buffer
 	)
-
-	r, w := io.Pipe()
-	echoCmd.Stdout = w
-	formattedCmd.Stdin = r
 
 	formattedCmd.Stderr = &errout
 	formattedCmd.Stdout = &out
 
-	echoCmd.Start()
 	if err := formattedCmd.Start(); err != nil {
 		cmds := []string{formatterCmdName}
 		return "", kenerrs.CodeFormatterErrors(strings.Join(append(cmds, options...), " "), errout.String(), err)
 	}
-	echoCmd.Wait()
-	w.Close()
 
-	if err := formattedCmd.Wait(); err != nil {
+	_, err := io.WriteString(stdinPipe, generatedCode)
+	if err != nil {
+		return "", err
+	}
+
+	if err = stdinPipe.Close(); err != nil {
+		return "", err
+	}
+
+	if err = formattedCmd.Wait(); err != nil {
 		cmds := []string{formatterCmdName}
 		return "", kenerrs.CodeFormatterErrors(strings.Join(append(cmds, options...), " "), errout.String(), err)
 	}
