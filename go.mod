@@ -1,4 +1,4 @@
-module github.com/goken
+module github.com/Melenium2/goken
 
 go 1.14
 

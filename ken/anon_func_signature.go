@@ -1,7 +1,7 @@
 package ken
 
 import (
-	"github.com/goken/kenerrs"
+	"github.com/Melenium2/goken/kenerrs"
 	"strings"
 )
 
@@ -18,32 +18,32 @@ func NewAnonFuncSignature() *AnonFuncSignature {
 func (f *AnonFuncSignature) AddParams(params ...*FuncParam) *AnonFuncSignature {
 	return &AnonFuncSignature{
 		funcParams: append(f.funcParams, params...),
-		returnTyp: f.returnTyp,
-		callers: append(f.callers, fetchCallerLineAsSlice(len(params))...),
+		returnTyp:  f.returnTyp,
+		callers:    append(f.callers, fetchCallerLineAsSlice(len(params))...),
 	}
 }
 
 func (f *AnonFuncSignature) Params(params ...*FuncParam) *AnonFuncSignature {
 	return &AnonFuncSignature{
 		funcParams: params,
-		returnTyp: f.returnTyp,
-		callers: fetchCallerLineAsSlice(len(params)),
+		returnTyp:  f.returnTyp,
+		callers:    fetchCallerLineAsSlice(len(params)),
 	}
 }
 
 func (f *AnonFuncSignature) AddReturnType(types ...string) *AnonFuncSignature {
 	return &AnonFuncSignature{
 		funcParams: f.funcParams,
-		returnTyp: append(f.returnTyp, types...),
-		callers: f.callers,
+		returnTyp:  append(f.returnTyp, types...),
+		callers:    f.callers,
 	}
 }
 
 func (f *AnonFuncSignature) ReturnType(types ...string) *AnonFuncSignature {
 	return &AnonFuncSignature{
 		funcParams: f.funcParams,
-		returnTyp: types,
-		callers: f.callers,
+		returnTyp:  types,
+		callers:    f.callers,
 	}
 }
 
@@ -86,4 +86,3 @@ func (f *AnonFuncSignature) Generate(indent int) (string, error) {
 
 	return stmt, nil
 }
-

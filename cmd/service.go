@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/goken/generators"
+	"github.com/Melenium2/goken/generators"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"log"
@@ -10,7 +10,7 @@ import (
 var packageName = "logic"
 
 var serviceCmd = &cobra.Command{
-	Use: "service",
+	Use:   "service",
 	Short: "Generate new service with provided name",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {

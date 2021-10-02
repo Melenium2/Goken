@@ -1,6 +1,6 @@
 package ken
 
-import "github.com/goken/kenerrs"
+import "github.com/Melenium2/goken/kenerrs"
 
 type Function struct {
 	funcReceiver  *FuncReceiver

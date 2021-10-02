@@ -2,7 +2,7 @@ package ken
 
 import (
 	"bytes"
-	"github.com/goken/kenerrs"
+	"github.com/Melenium2/goken/kenerrs"
 	"io"
 	"os/exec"
 	"strings"

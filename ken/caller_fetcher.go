@@ -16,7 +16,7 @@ func fetchCallerLine(skip ...int) string {
 	for {
 		pc, file, line, ok := runtime.Caller(s)
 		f := runtime.FuncForPC(pc)
-		if strings.Contains(f.Name(), "github.com/goken") {
+		if strings.Contains(f.Name(), "github.com/Melenium2/goken") {
 			s++
 			continue
 		}

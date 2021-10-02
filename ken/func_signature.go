@@ -1,7 +1,7 @@
 package ken
 
 import (
-	"github.com/goken/kenerrs"
+	"github.com/Melenium2/goken/kenerrs"
 	"strings"
 )
 

@@ -2,7 +2,7 @@ package ken
 
 import (
 	"fmt"
-	"github.com/goken/kenerrs"
+	"github.com/Melenium2/goken/kenerrs"
 )
 
 type Case struct {
@@ -13,25 +13,25 @@ type Case struct {
 
 func NewCase(condition string, states ...State) *Case {
 	return &Case{
-		condition: condition,
+		condition:  condition,
 		statements: states,
-		caller: fetchCallerLine(),
+		caller:     fetchCallerLine(),
 	}
 }
 
 func (c *Case) AddSates(states ...State) *Case {
 	return &Case{
-		condition: c.condition,
+		condition:  c.condition,
 		statements: append(c.statements, states...),
-		caller: c.caller,
+		caller:     c.caller,
 	}
 }
 
 func (c *Case) States(states ...State) *Case {
 	return &Case{
-		condition: c.condition,
+		condition:  c.condition,
 		statements: states,
-		caller: c.caller,
+		caller:     c.caller,
 	}
 }
 

@@ -2,10 +2,10 @@ package generators
 
 import (
 	"fmt"
-	"github.com/goken/astparser"
-	"github.com/goken/fs"
-	"github.com/goken/ken"
-	"github.com/goken/utils"
+	"github.com/Melenium2/goken/astparser"
+	"github.com/Melenium2/goken/fs"
+	"github.com/Melenium2/goken/ken"
+	"github.com/Melenium2/goken/utils"
 	"github.com/spf13/viper"
 )
 
